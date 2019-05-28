@@ -41,7 +41,7 @@ $Theme = New-UDTheme -Name "Azure2" -Definition @{
     }
 }
 
-$Footer = New-UDFooter -Copyright 'Eric Stumbo' -Links $Link
+$Footer = New-UDFooter -Copyright 'I dont care copy the crap out of this: by Eric Stumbo' -Links $Link
 $Link = New-UDLink -text 'GitHub' -Url 'https://github.com/digikin/'
 
 
