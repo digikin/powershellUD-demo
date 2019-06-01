@@ -11,8 +11,7 @@ $p.CounterSamples
 $q.CounterSamples
 $r.CounterSamples
 
-$z = Get-Counter -Counter "\Memory\Available MBytes"
-$z
+
 
 $Counters = @(
     '\network adapter(hyper-v virtual ethernet adapter _2)\packets sent/sec'
@@ -38,3 +37,4 @@ Get-Counter -Counter $Counters -MaxSamples 5 | ForEach {
         }
     }
 } | Export-Csv -Path Perf.csv -NoTypeInformation
+

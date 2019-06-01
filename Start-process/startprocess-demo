@@ -1,0 +1,57 @@
+## Lets see whats running
+
+PS C:\users\digikin\Desktop> Get-CimInstance Win32_StartupCommand
+
+Command
+-------
+C:\Windows\SysWOW64\OneDriveSetup.exe /thfirstsetup
+C:\Windows\SysWOW64\OneDriveSetup.exe /thfirstsetup
+"C:\Users\digikin\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --no-startup-window /prefetch:5
+C:\Program Files\Docker\Docker\Docker Desktop.exe
+C:\Program Files (x86)\NordVPN\NordVPN.exe
+C:\Users\digikin\AppData\Local\Discord\app-0.0.305\Discord.exe
+%windir%\system32\SecurityHealthSystray.exe
+"C:\WINDOWS\System32\RtkAudUService64.exe" -background
+C:\Program Files\Alienware\AlienwareMobileConnectDrivers\AlienwareMobileConnectWelcome.exe
+"C:\Program Files\Intel\Intel(R) Rapid Storage Technology\IAStorIconLaunch.exe" "C:\Program Files\Intel\Intel(R) Rap...
+
+## Now we can see the applications target command to open
+
+PS C:\users\digikin\Desktop> Get-CimInstance Win32_StartupCommand | Select-Object Name, command | Format-list           
+
+Name    : OneDriveSetup
+command : C:\Windows\SysWOW64\OneDriveSetup.exe /thfirstsetup
+
+Name    : OneDriveSetup
+command : C:\Windows\SysWOW64\OneDriveSetup.exe /thfirstsetup
+
+Name    : OneDrive
+command : "C:\Users\digikin\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
+
+Name    : GoogleChromeAutoLaunch_8C18992039487D32BF97C8C9C5FDB2D1
+command : "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --no-startup-window /prefetch:5
+
+Name    : Docker Desktop
+command : C:\Program Files\Docker\Docker\Docker Desktop.exe
+
+Name    : NordVPN
+command : C:\Program Files (x86)\NordVPN\NordVPN.exe
+
+Name    : Discord
+command : C:\Users\digikin\AppData\Local\Discord\app-0.0.305\Discord.exe
+
+Name    : SecurityHealth
+command : %windir%\system32\SecurityHealthSystray.exe
+
+Name    : RtkAudUService
+command : "C:\WINDOWS\System32\RtkAudUService64.exe" -background
+
+Name    : AlienwareMobileConnectWelcome
+command : C:\Program Files\Alienware\AlienwareMobileConnectDrivers\AlienwareMobileConnectWelcome.exe
+
+Name    : IAStorIcon
+command : "C:\Program Files\Intel\Intel(R) Rapid Storage Technology\IAStorIconLaunch.exe" "C:\Program
+          Files\Intel\Intel(R) Rapid Storage Technology\IAStorIcon.exe" 60
+
+PS C:\users\digikin\Desktop> Get-CimInstance Win32_StartupCommand | Select-Object Name, command | Format-list | Out-File C:\users\digikin\desktop\startup1.txt      

@@ -1,0 +1,73 @@
+NAME
+    Start-Process
+
+SYNOPSIS
+    Starts one or more processes on the local computer.
+
+
+    Example 1: Start a process that uses default values
+
+    PS C:\>Start-Process -FilePath "sort.exe"
+
+    This command starts a process that uses the Sort.exe file in the current folder. The command uses all of the
+    default values, including the default window style, working folder, and credentials.
+    Example 2: Print a text file
+
+    PS C:\>Start-Process -FilePath "myfile.txt" -WorkingDirectory "C:\PS-Test" -Verb Print
+
+    This command starts a process that prints the C:\PS-Test\MyFile.txt file.
+    Example 3: Start a process to sort items to a new file
+
+    PS C:\>Start-Process -FilePath "Sort.exe" -RedirectStandardInput "Testsort.txt" -RedirectStandardOutput
+    "Sorted.txt" -RedirectStandardError "SortError.txt" -UseNewEnvironment
+
+    This command starts a process that sorts items in the Testsort.txt file and returns the sorted items in the
+    Sorted.txt files. Any errors are written to the SortError.txt file.
+
+    The UseNewEnvironment parameter specifies that the process runs with its own environment variables.
+    Example 4: Start a process in a maximized window
+
+    PS C:\>Start-Process -FilePath "notepad" -Wait -WindowStyle Maximized
+
+    This command starts the Notepad process. It maximizes the window and retains the window until the process
+    completes.
+    Example 5: Start Windows Powershell as an administrator
+
+    PS C:\>Start-Process -FilePath "powershell" -Verb runAs
+
+    This command starts Windows PowerShell by using the Run as administrator option.
+    Example 6: Using different verbs to start a process
+
+    PS C:\>$startExe = New-Object System.Diagnostics.ProcessStartInfo -Args PowerShell.exe
+    PS C:\> $startExe.verbs
+    open
+    runas
+
+    # Starts a PowerShell process in a new console window.
+
+    PS C:\> Start-Process -FilePath "powershell.exe" -Verb open
+
+    # Starts a PowerShell process with "Run as Administrator" permissions.
+
+    PS C:\> Start-Process -FilePath "powershell.exe" -Verb runas
+
+    These commands show how to find the verbs that can be used when starting a process, and the effect of using the
+    verbs to start the process.
+
+    The available verbs are determined by the file name extension of the file that runs in the process. To find the
+    verbs for a process, create a System.Diagnostics.ProcessStartInfo object for the process file and look in the
+    Verbs property of the object. This example uses the PowerShell.exe file that runs in the PowerShell process.
+
+    The first command uses New-Object to create a System.Diagnostics.ProcessStartInfo object for PowerShell.exe, the
+    file that runs in the PowerShell process. The command saves the ProcessStartInfo object in the $startExe variable.
+
+    The second command displays the values in the Verbs property of the ProcessStartInfo object in the $startExe
+    variable. The results show that you can use the Open and Runas verbs with PowerShell.exe, or with any process that
+    runs a .exe file.
+
+    The third command starts a PowerShell process with the Open verb. The Open verb starts the process in a new
+    console window.
+
+    The fourth command starts a PowerShell process with the RunAs verb. The RunAs verb starts the process with
+    permissions of a member of the Administrators group on the computer. This is the same as starting Windows
+    PowerShell by using the Run as administrator option.
