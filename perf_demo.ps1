@@ -14,15 +14,12 @@ $r.CounterSamples
 
 
 $Counters = @(
-    '\network adapter(hyper-v virtual ethernet adapter _2)\packets sent/sec'
-    '\network adapter(hyper-v virtual ethernet adapter _2)\packets received/sec'
-    '\network adapter(killer e2500 gigabit ethernet controller _3)\packets sent/sec'
-    '\network adapter(killer e2500 gigabit ethernet controller _3)\packets received/sec'
+    '\network adapter(killer e2500 gigabit ethernet controller _4)\packets sent/sec'
+    '\network adapter(killer e2500 gigabit ethernet controller _4)\packets received/sec'
     '\Memory\Available MBytes'
     '\Memory\% Committed Bytes In Use'
     '\logicaldisk(c:)\free megabytes'
     '\logicaldisk(d:)\free megabytes'
-    '\Processor(*)\% Processor Time'
     '\process(idle)\% processor time'
     '\process(system)\% processor time'
     '\processor(_total)\% idle time'
@@ -36,5 +33,5 @@ Get-Counter -Counter $Counters -MaxSamples 5 | ForEach {
             Value = $_.CookedValue
         }
     }
-} | Export-Csv -Path Perf.csv -NoTypeInformation
+} | Export-Csv -Path perf.csv -NoTypeInformation
 
