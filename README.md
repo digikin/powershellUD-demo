@@ -34,7 +34,7 @@ Get-Counter -Counter $Counters -MaxSamples 5 | ForEach {
 Then this is used to with the small script to export to a csv file where I can present the information with graphs. 
 
 ## Excell Dashboard preview 
-![Excell Dashboard](/assets/images/excell-dashboard.PNG "Excell dashboard preview")
+![Excell Dashboard](/assets/images/excel-dashboard.PNG "Excell dashboard preview")
 
 
 
