@@ -21,5 +21,5 @@ Open the folder C:\Program Files\WindowsPowerShell\Modules\PowerShellGet
 
 You should only have version 2.1.4 inside of that folder.  If you have anything less just move it out of the directory and reissue the commands.  
 
-## Dashboard preview with Docker plugin configured
-![PoshUD Dashboard](/assets/images/Dashboard.PNG "PoshUD preview")
+## Dashboard preview 
+![PoshUD Dashboard](/assets/images/dashboard.PNG "PoshUD preview")
