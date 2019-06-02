@@ -2,7 +2,41 @@
 
 # This is an intro into powershell.
 
-Taking data found from powershell and feeding it into a dashboard
+Taking data found from powershell by using basic commands and feeding it into a dashboard
+
+I have included perf_demo.ps1 to show how the performance metric can be found using powershell.
+
+```
+$Counters = @(
+    '\network adapter(killer e2500 gigabit ethernet controller _4)\packets sent/sec'
+    '\network adapter(killer e2500 gigabit ethernet controller _4)\packets received/sec'
+    '\Memory\Available MBytes'
+    '\Memory\% Committed Bytes In Use'
+    '\logicaldisk(c:)\free megabytes'
+    '\logicaldisk(d:)\free megabytes'
+    '\process(idle)\% processor time'
+    '\process(system)\% processor time'
+    '\processor(_total)\% idle time'
+)
+
+Get-Counter -Counter $Counters -MaxSamples 5 | ForEach {
+    $_.CounterSamples | ForEach {
+        [pscustomobject]@{
+            TimeStamp = $_.TimeStamp
+            Path = $_.Path
+            Value = $_.CookedValue
+        }
+    }
+} | Export-Csv -Path perf.csv -NoTypeInformation
+```
+
+
+Then this is used to with the small script to export to a csv file where I can present the information with graphs. 
+
+## Excell Dashboard preview 
+![Excell Dashboard](/assets/images/excell-dashboard.PNG "Excell dashboard preview")
+
+
 
 To get started open an admin power shell terminal.
 ```
