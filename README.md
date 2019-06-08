@@ -47,6 +47,12 @@ git clone https://github.com/digikin/powershellUD-demo.git
 cd powershellUD-demo
 
 .\dataUD.ps1
+
+Name  Port Running DashboardService
+----  ---- ------- ----------------
+Demo 10001    True UniversalDashboard.Services.DashboardService
+
+Start-Process http://localhost:10001
 ```
 
 If you get an error trying to install the module because of the powershell version.
