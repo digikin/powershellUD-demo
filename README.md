@@ -6,7 +6,7 @@ Taking data found from powershell by using basic commands and feeding it into a 
 
 I have included perf_demo.ps1 to show how the performance metric can be found using powershell.
 
-```
+```powershell
 $Counters = @(
     '\network adapter(killer e2500 gigabit ethernet controller _4)\packets sent/sec'
     '\network adapter(killer e2500 gigabit ethernet controller _4)\packets received/sec'
@@ -39,7 +39,8 @@ Then this is used to with the small script to export to a csv file where I can p
 
 
 To get started open an admin power shell terminal.
-```
+
+```powershell
 Install-Module UniversalDashboard.Community -AcceptLicense
 
 git clone https://github.com/digikin/powershellUD-demo.git
