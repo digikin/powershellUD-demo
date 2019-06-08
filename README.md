@@ -42,7 +42,7 @@ To get started open an admin power shell terminal.
 ```
 Install-Module UniversalDashboard.Community -AcceptLicense
 
-git clone git@github.com:digikin/powershellUD-demo.git
+git clone https://github.com/digikin/powershellUD-demo.git
 
 cd powershellUD-demo
 
